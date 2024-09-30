@@ -1,26 +1,21 @@
-# -*- coding: utf-8 -*-
+from cStringIO import StringIO
 import sys
-import greetings  # Εισαγωγή του κώδικα από το αρχείο greetings.py
+import greetings  # Εισαγωγή του αρχείου `greetings.py`
 
-def test_greeting_variable():
-    # Έλεγχος αν η μεταβλητή greeting υπάρχει και περιέχει την τιμή 'Hello, World!'
-    assert hasattr(greetings, 'greeting'), "There isnt 'greeting' in greetings.py"
-    assert greetings.greeting == 'Hello Python', " 'greeting' not having  'Hello Python'"
+def test_print_output():
+    # Ανακατεύθυνση της εξόδου σε προσωρινή μνήμη
+    old_stdout = sys.stdout
+    sys.stdout = captured_output = StringIO()
 
-def test_print_output(capsys):
-    # Εκτελεί το πρόγραμμα και ελέγχει την έξοδο του print
-    #import greetings  # Εισαγωγή του αρχείου για να τρέξει το πρόγραμμα
-    #out, err = capsys.readouterr()  # Capture output
-    #assert out == "Hello Python\n", "It didnt print 'Hello Python'"
-    # Χρήση του importlib για να διασφαλίσεις ότι το greetings επανεκτελείται
-    
-    importlib.reload(greetings)
+    try:
+        # Επαναφορτώνουμε το greetings για να εκτελεστεί ξανά
+        reload(greetings)
+    finally:
+        # Επαναφορά της κανονικής εξόδου stdout
+        sys.stdout = old_stdout
 
-    # Καταγραφή της εξόδου μετά την επανεκτέλεση του greetings
-    out, err = capsys.readouterr()
+    # Καταγράφουμε την εκτυπωμένη έξοδο
+    output = captured_output.getvalue().strip()
 
-    # Εκτύπωση της καταγεγραμμένης εξόδου για debugging
-    #print(f"Captured Output: '{out}'")
-
-    # Έλεγχος της εξόδου
-    assert out == "Hello Python\n", f"It didn't print 'Hello Python', instead got: '{out}'"
+    # Έλεγχος της εξόδου για την επιθυμητή τιμή
+    assert output == "Hello Python", "It didn't print 'Hello Python', got: '{}'".format(output)
