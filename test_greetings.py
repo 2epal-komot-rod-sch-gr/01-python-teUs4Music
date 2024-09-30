@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 from cStringIO import StringIO
 import sys
 import greetings  # Εισαγωγή του αρχείου `greetings.py`
