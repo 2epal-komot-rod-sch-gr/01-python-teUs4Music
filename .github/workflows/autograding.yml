@@ -1,7 +1,10 @@
-name: Autograding for Python
+name: Autograding for Python 2.7 using Docker
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
@@ -9,18 +12,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    container:
+      image: python:2.7  # Χρησιμοποιούμε το επίσημο Docker image για Python 2.7
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '2.7'  
     - name: Install dependencies
       run: |
-        pip install pytest
+        pip install pytest  # Εγκατάσταση του pytest στο container
 
     - name: Run tests
       run: |
-        pytest
+        pytest  # Εκτέλεση των tests
