@@ -9,5 +9,7 @@ def test_greeting_variable():
 def test_print_output(capsys):
     # Εκτελεί το πρόγραμμα και ελέγχει την έξοδο του print
     main_output = greetings  # Εισαγωγή του αρχείου για να τρέξει το πρόγραμμα
-    captured = capsys.readouterr()  # Capture output
-    assert captured.out == 'Hello Python', "It didnt print 'Hello Python'"
+    out, err = capsys.readouterr()  # Capture output
+    sys.stdout.write(out)
+    sys.stderr.write(err)
+    assert out == 'Hello Python', "It didnt print 'Hello Python'"
