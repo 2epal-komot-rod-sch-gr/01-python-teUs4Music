@@ -4,10 +4,10 @@ import greetings  # Εισαγωγή του κώδικα από το αρχεί�
 def test_greeting_variable():
     # Έλεγχος αν η μεταβλητή greeting υπάρχει και περιέχει την τιμή 'Hello, World!'
     assert hasattr(greetings, 'greeting'), "Η μεταβλητή 'greeting' δεν υπάρχει στο greetings.py"
-    assert greetings.greeting == 'Hello Python', "Η μεταβλητή 'greeting' δεν έχει την τιμή 'Hello Python'"
+    assert greetings.greeting == 'Hello Python', " 'greeting' not having  'Hello Python'"
 
 def test_print_output(capsys):
     # Εκτελεί το πρόγραμμα και ελέγχει την έξοδο του print
     main_output = greetings  # Εισαγωγή του αρχείου για να τρέξει το πρόγραμμα
     captured = capsys.readouterr()  # Capture output
-    assert captured.out == 'Hello Python\n', "Το πρόγραμμα δεν εκτύπωσε 'Hello Python'"
+    assert captured.out == 'Hello Python\n', "It didnt print 'Hello Python'"
