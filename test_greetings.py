@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import sys
 import greetings  # Εισαγωγή του κώδικα από το αρχείο greetings.py
 
 def test_greeting_variable():
