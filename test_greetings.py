@@ -13,4 +13,4 @@ def test_print_output(capsys):
     out, err = capsys.readouterr()  # Capture output
     sys.stdout.write(out)
     sys.stderr.write(err)
-    assert out == 'Hello Python', "It didnt print 'Hello Python'"
+    assert out.out == 'Hello Python', "It didnt print 'Hello Python'"
