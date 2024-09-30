@@ -20,7 +20,7 @@ def test_print_output(capsys):
     out, err = capsys.readouterr()
 
     # Εκτύπωση της καταγεγραμμένης εξόδου για debugging
-    print(f"Captured Output: '{out}'")
+    #print(f"Captured Output: '{out}'")
 
     # Έλεγχος της εξόδου
     assert out == "Hello Python\n", f"It didn't print 'Hello Python', instead got: '{out}'"
