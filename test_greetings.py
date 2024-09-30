@@ -10,4 +10,4 @@ def test_print_output(capsys):
     # Εκτελεί το πρόγραμμα και ελέγχει την έξοδο του print
     main_output = greetings  # Εισαγωγή του αρχείου για να τρέξει το πρόγραμμα
     captured = capsys.readouterr()  # Capture output
-    assert captured.out == 'Hello Python\n', "It didnt print 'Hello Python'"
+    assert captured.out == 'Hello Python', "It didnt print 'Hello Python'"
