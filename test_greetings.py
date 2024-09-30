@@ -3,7 +3,7 @@ import greetings  # Εισαγωγή του κώδικα από το αρχεί�
 
 def test_greeting_variable():
     # Έλεγχος αν η μεταβλητή greeting υπάρχει και περιέχει την τιμή 'Hello, World!'
-    assert hasattr(main, 'greeting'), "Η μεταβλητή 'greeting' δεν υπάρχει στο greetings.py"
+    assert hasattr(greetings, 'greeting'), "Η μεταβλητή 'greeting' δεν υπάρχει στο greetings.py"
     assert main.greeting == 'Καλημέρα Python', "Η μεταβλητή 'greeting' δεν έχει την τιμή 'Καλημέρα Python'"
 
 def test_print_output(capsys):
